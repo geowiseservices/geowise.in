@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEOWISE - Leading GIS & IT Solutions Provider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0052A3;
+            --secondary: #0052A3;
+            --accent: #0052A3;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+            --border-color: #ecf0f1;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #ffffff;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #ffffff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        .logo-svg {
+            width: 160px;
+            height: auto;
+            max-width: 100%;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #0052A3;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0052A3;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0052A3 0%, #003d7a 50%, #002a52 100%);
+            color: #ffffff;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(46, 204, 113, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+        }
+
+        .hero .highlight {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #0052A3;
+            color: #ffffff;
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid #0052A3;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--secondary);
+        }
+
+        .cta-button.outline {
+            background: transparent;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .cta-button.outline:hover {
+            background: #ffffff;
+            color: var(--primary);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--light-bg);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+            line-height: 1.8;
+        }
+
+        .about-highlight {
+            background: linear-gradient(120deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%);
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            margin: 2rem 0;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--light-text);
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        #services {
+            background: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
+            transform: translateY(-4px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Expertise Section */
+        #expertise {
+            background: var(--light-bg);
+        }
+
+        .expertise-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .expertise-category {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .expertise-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.8rem;
+        }
+
+        .expertise-list {
+            list-style: none;
+        }
+
+        .expertise-list li {
+            padding: 0.6rem 0;
+            color: var(--dark-text);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .expertise-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .expertise-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Technology Stack */
+        #technology {
+            background: #ffffff;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, #0052A3 0%, #003d7a 100%);
+            color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .tech-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tech-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0052A3 0%, #003d7a 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #0052A3;
+            color: #ffffff;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.2rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .about-content,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            section {
+                padding: 2.5rem 1rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header {
+                position: static;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <svg class="logo-svg" viewBox="0 0 380 130" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <style>
+                            .geowise-main { font-family: 'Arial', 'Helvetica', sans-serif; font-weight: bold; font-size: 68px; fill: #0052A3; }
+                            .tagline-text { font-family: 'Arial', 'Helvetica', sans-serif; font-weight: normal; font-size: 20px; fill: #0052A3; letter-spacing: 0.8px; }
+                        </style>
+                    </defs>
+                    
+                    <!-- GE Text -->
+                    <text x="12" y="75" class="geowise-main">GE</text>
+                    
+                    <!-- O replaced with Globe logo image -->
+                    <g>
+                        <!-- Globe image inside the O (no outer boundary circle) -->
+                        <image x="115" y="15" width="60" height="60" href="geowise-globe.png" preserveAspectRatio="xMidYMid meet"/>
+                    </g>
+                    
+                    <!-- WISE Text -->
+                    <text x="185" y="75" class="geowise-main">WISE</text>
+                    
+                    <!-- Tagline with proper spacing from main text -->
+                    <text x="190" y="109" class="tagline-text" text-anchor="middle">AN EMPLOYEE-OWNED COMPANY</text>
+                    
+
+                </svg>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Geospatial Technologies Meets Enterprise Solutions</h1>
+            <p class="tagline">Leading GIS & IT Solutions Provider Delivering <span class="highlight">Location-Based Intelligence</span> Across Industries</p>
+            <a href="#about" class="cta-button">Explore Our Services</a>
+            <a href="#contact" class="cta-button outline">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="divider"></div>
+        <h2 class="section-title">About GEOWISE</h2>
+        <p class="section-subtitle">Setting the standard for GIS excellence and enterprise IT solutions in India</p>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p>GEOWISE is a leading IT solutions provider headquartered in India, specializing in transformative geographic information systems (GIS) and location-based intelligence solutions. With a commitment to excellence and innovation, we help enterprises across utilities, municipal bodies, and critical infrastructure maximize their operational efficiency and competitive advantage.</p>
+                
+                <div class="about-highlight">
+                    <strong>Our Mission:</strong> To empower organizations with advanced GIS technologies and intelligent data insights that drive strategic business decisions and operational excellence.
+                </div>
+
+                <p>Our experienced team combines deep domain expertise with cutting-edge ESRI ArcGIS and open-source GIS technologies to deliver comprehensive solutions that integrate seamlessly with your enterprise systems. We don't just implement technology—we partner with you to understand your unique business challenges and craft solutions that create measurable value.</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Successful Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Domain Experts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Industries Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Expert Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="divider"></div>
+        <h2 class="section-title">Core Services</h2>
+        <p class="section-subtitle">Comprehensive GIS solutions tailored to your enterprise needs</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>GIS Consulting</h3>
+                <p>Strategic planning and gap analysis to develop comprehensive GIS roadmaps. We assess your current systems, identify opportunities, and design solutions that align with your business objectives.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <h3>ArcGIS Development</h3>
+                <p>Custom application development using ESRI ArcGIS technologies. From web GIS solutions to enterprise implementations, we build robust systems that deliver location intelligence at scale.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔓</div>
+                <h3>Open Source GIS</h3>
+                <p>Flexible, cost-effective solutions using GeoServer, QGIS, PostgreSQL, and OpenLayers. Perfect for organizations seeking open standards and community-driven innovation.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔗</div>
+                <h3>System Integration</h3>
+                <p>Seamlessly integrate GIS with enterprise systems like EAMS, DMS, SCADA, and Oracle CC&B. Bridge location intelligence with operational management for unified insights.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Data Management</h3>
+                <p>End-to-end GIS data services including modeling, quality management, migration (ETL), and governance. Ensure your geospatial data is accurate, organized, and actionable.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Support & Maintenance</h3>
+                <p>Round-the-clock application support with ticketing management and SLA-based resolutions. Our experts ensure your GIS systems run smoothly and evolve with your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise">
+        <div class="divider"></div>
+        <h2 class="section-title">Areas of Expertise</h2>
+        <p class="section-subtitle">Proven capabilities across GIS domains and enterprise technologies</p>
+
+        <div class="expertise-columns">
+            <div class="expertise-category">
+                <h3>GIS Specializations</h3>
+                <ul class="expertise-list">
+                    <li>GIS Strategic Planning</li>
+                    <li>Satellite Imagery & Processing</li>
+                    <li>GPS/DGPS Mapping</li>
+                    <li>Web GIS Solutions</li>
+                    <li>Enterprise Database Design</li>
+                    <li>Data Quality Management</li>
+                </ul>
+            </div>
+
+            <div class="expertise-category">
+                <h3>Industry Domains</h3>
+                <ul class="expertise-list">
+                    <li>Electrical Utilities</li>
+                    <li>Water Management</li>
+                    <li>Oil & Gas</li>
+                    <li>Urban Local Bodies</li>
+                    <li>Municipal Services</li>
+                    <li>Infrastructure</li>
+                </ul>
+            </div>
+
+            <div class="expertise-category">
+                <h3>Core Competencies</h3>
+                <ul class="expertise-list">
+                    <li>Application Development</li>
+                    <li>Software Testing</li>
+                    <li>Web/Mobile Apps</li>
+                    <li>Data Analytics</li>
+                    <li>System Integration</li>
+                    <li>Technical Training</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology">
+        <div class="divider"></div>
+        <h2 class="section-title">Technology Stack</h2>
+        <p class="section-subtitle">Enterprise-grade tools and platforms we specialize in</p>
+
+        <div class="tech-grid">
+            <div class="tech-item">
+                <h4>GIS Platforms</h4>
+                <p>ESRI ArcGIS Desktop, Server, Online, Portal, ArcFM, GeoServer, QGIS</p>
+            </div>
+
+            <div class="tech-item">
+                <h4>Web Technologies</h4>
+                <p>React, Angular, Node.js, Express, Bootstrap, HTML5, CSS3</p>
+            </div>
+
+            <div class="tech-item">
+                <h4>Databases</h4>
+                <p>Oracle, SQL Server, MySQL, PostgreSQL, ArcSDE</p>
+            </div>
+
+            <div class="tech-item">
+                <h4>Programming Languages</h4>
+                <p>Python, JavaScript, Java, C#.NET, VB.NET, ArcPy</p>
+            </div>
+
+            <div class="tech-item">
+                <h4>Cloud Platforms</h4>
+                <p>Microsoft Azure, AWS, Google Cloud Platform, Oracle Cloud</p>
+            </div>
+
+            <div class="tech-item">
+                <h4>Enterprise Systems</h4>
+                <p>EAMS, DMS, SCADA, Oracle CC&B, SAP Integration</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2>Ready to Transform Your GIS Strategy?</h2>
+        <p>Partner with GEOWISE to unlock the full potential of location-based intelligence for your enterprise</p>
+        <a href="mailto:contact@geowise.in" class="cta-button">Contact Our Team</a>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="divider"></div>
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">We're here to discuss how GEOWISE can support your GIS and IT objectives</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div style="background: var(--light-bg); padding: 2rem; border-radius: 8px; text-align: center;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Email</h3>
+                <p><a href="mailto:contact@geowise.in" style="color: var(--secondary); text-decoration: none; font-weight: 500;">contact@geowise.in</a></p>
+            </div>
+
+            <div style="background: var(--light-bg); padding: 2rem; border-radius: 8px; text-align: center;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Website</h3>
+                <p><a href="https://www.geowise.in" style="color: var(--secondary); text-decoration: none; font-weight: 500;">www.geowise.in</a></p>
+            </div>
+
+            <div style="background: var(--light-bg); padding: 2rem; border-radius: 8px; text-align: center;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Location</h3>
+                <p style="color: var(--dark-text);">India</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>GEOWISE</h4>
+                <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem;">Leading GIS and IT solutions provider delivering location-based intelligence across industries.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">GIS Consulting</a></li>
+                    <li><a href="#services">ArcGIS Development</a></li>
+                    <li><a href="#services">System Integration</a></li>
+                    <li><a href="#services">Data Management</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Expertise</h4>
+                <ul>
+                    <li><a href="#expertise">GIS Technologies</a></li>
+                    <li><a href="#expertise">Enterprise Systems</a></li>
+                    <li><a href="#expertise">Industry Solutions</a></li>
+                    <li><a href="#expertise">Data Analytics</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#technology">Technology Stack</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://www.geowise.in">Visit Website</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 GEOWISE Services. All rights reserved. | Delivering Excellence in GIS and IT Solutions</p>
+        </div>
+    </footer>
+</body>
+</html>
